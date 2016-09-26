@@ -4,7 +4,7 @@ import UIKit
 
 
 /*:
-传统for
+* 传统for
 * 基本用法和OC一致
 * for后面的()可以省略
 * for后面的{}不可用省略
@@ -27,7 +27,7 @@ for i in 0..<10
 }
 
 /*:
-while
+* while
 * 基本用法和OC一致
 */
 var number = 0
@@ -35,7 +35,7 @@ while number < 10
 {
     print(number)
 // Swift3中，移除了++这种形式的自增
-//    number++
+//  number++
     number += 1
 }
 
