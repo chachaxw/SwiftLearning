@@ -48,6 +48,11 @@ let str4 = "chacha"
 (str4 as NSString).substring(with: NSMakeRange(3, 3))
 
 
+var str5 = "chacha"
+str5.substring(from: str5.index(str5.startIndex, offsetBy: 1))
+
+let str6 = "a😄b🐶c🇨🇳"
+let r1 = str6.range(of: "🇨🇳")
 
 
 
