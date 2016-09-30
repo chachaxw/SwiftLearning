@@ -48,7 +48,7 @@ class ViewController: UIViewController {
         */
         
         let scrollView = createScrollView(getNumber: { () -> Int in
-            return 20
+            return 10
         }) { (index) -> UIView in
             let label = UILabel()
             label.text = "CHACHA\(index)"
@@ -61,6 +61,7 @@ class ViewController: UIViewController {
     }
     
     func createScrollView(getNumber: () -> Int, createView: (_ index: Int) -> UIView) -> UIScrollView {
+        
         // 1.创建UIScrollview
         let scrollView = UIScrollView(frame: CGRect(x: 0, y: 150, width: UIScreen.main.bounds.width, height: 50))
         scrollView.backgroundColor = UIColor.init(red: 0.96, green: 0.96, blue: 0.96, alpha: 1.00)
