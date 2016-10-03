@@ -10,16 +10,20 @@ import UIKit
 
 // 1.在Swift中遵守协议直接利用逗号隔开
 class ViewController: UIViewController {
+    
+    
     override func loadView() {
         let tableView = UITableView()
         tableView.dataSource = self
         tableView.delegate = self
+        
+        print("\nHello", tableView)
         view = tableView
     }
     
     // MARK: - 懒加载
     lazy var listData: [String]? = {
-        return ["Hello Chacha", "Swift", "CHACHA", "Awesome", "This is a UITableView"]
+        return ["Hello Chacha", "Swift", "CHACHA", "Awesome", "UITableView"]
     }()
 
 }
@@ -36,6 +40,16 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
         return (listData?.count)!
     }
     
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let headerLabel = UILabel(frame: CGRect(x: 0, y: 0, width: self.view.bounds.size.width, height: 50))
+        headerLabel.text = "HELLO CHACHA"
+        headerLabel.textAlignment = NSTextAlignment.center
+        headerLabel.font = UIFont(name: "Helvetica-Bold", size: 20)
+        headerLabel.backgroundColor = UIColor.init(red: 0.24, green: 0.63, blue: 0.95, alpha: 1.00)
+        
+        return headerLabel
+    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         var cell = tableView.dequeueReusableCell(withIdentifier: "cell")
         if cell == nil {
@@ -48,6 +62,11 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
     
     // MARK: - UITableViewDelegate
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("\nThis is a UITableView", listData![(indexPath as NSIndexPath).row])
+        let item = listData![(indexPath as NSIndexPath).row]
+        let alertController = UIAlertController(title: "Hello", message: "你选中了\(item)", preferredStyle: .alert)
+        let cancelAction = UIAlertAction(title: "确定", style: .cancel, handler: nil)
+        alertController.addAction(cancelAction)
+        self.present(alertController, animated: true, completion: nil)
     }
+  
 }
