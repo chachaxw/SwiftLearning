@@ -38,23 +38,16 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // TODO: 有问题, 开发中不应该这样写
         return (listData?.count)!
-    }
-    
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let headerLabel = UILabel(frame: CGRect(x: 0, y: 0, width: self.view.bounds.size.width, height: 50))
-        headerLabel.text = "HELLO CHACHA"
-        headerLabel.textAlignment = NSTextAlignment.center
-        headerLabel.font = UIFont(name: "Helvetica-Bold", size: 20)
-        headerLabel.backgroundColor = UIColor.init(red: 0.24, green: 0.63, blue: 0.95, alpha: 1.00)
-        
-        return headerLabel
+
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         var cell = tableView.dequeueReusableCell(withIdentifier: "cell")
+        
         if cell == nil {
             cell = UITableViewCell(style: UITableViewCellStyle.value1, reuseIdentifier: "cell")
         }
+        
         cell?.textLabel?.text = listData![(indexPath as NSIndexPath).row]
         
         return cell!
