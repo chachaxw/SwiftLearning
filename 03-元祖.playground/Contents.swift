@@ -22,7 +22,6 @@ person.name
 person.age
 person.score
 
-
 // 提取元祖的数据
 let (name, age, score) = ("chacha", 22, 100.0)
 name
